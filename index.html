@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Home</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Laptop">
+  <meta name="keywords" content="Laptop, Home">
+  <meta name="author" content="Jay/Rachel/WeeLing">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <style>
+    .scroll-container {
+      overflow-x: auto;
+      white-space: nowrap;
+      padding: 10px;
+    }
+
+    .scroll-item {
+      display: inline-block;
+      margin-right: 20px;
+    }
+  </style>
+  <script>
+    $(function(){
+        $('a').each(function(){
+            if ($(this).prop('href') == window.location.href) {
+                $(this).addClass('active'); $(this).parents('li').addClass('active');
+            }
+        });
+    });
+  </script>
+</head>
+<body>
+
+<header>
+  <a href="index.html"><img src="images\jrw.png" alt="logo" div class="logo" width="10%" height="20%"></a>
+
+  <nav>
+    <ul class="navbar">
+      <li class="active"><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="feedback.html">Feedback</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="support.html">Support</a></li>
+      <li><a href="news&updates.html">News & Updates</a></li>
+      <li><a href="forums.html">Forums</a></li>
+    </ul>
+  </nav>
+
+</header>
+  <h1>J R W Tech</h1>
+  <p div class="intro">Our website simplifies laptop selection, offering the latest information efficiently. Filter reviews, stay market-savvy, and benefit from our expert advice.</p>
+
+  <hr>
+
+<div class="row">
+  <div class="side">
+    <div class="laptop">
+    <h2>Laptops</h2>
+    <h5>Best Seller</h5>
+    <img src="images\frameworklaptop16head.jpg" width="838" height="559" alt="laptop16">
+    <p><a href="https://frame.work/products/laptop16-diy-amd-7040" class="framework">Framework Laptop 16 DIY Edition (AMD Ryzen™ 7040 Series)</a></p>
+
+    <br>
+
+    <hr>
+
+    <br>
+
+    <h3>Popular</h3>
+    <div class="scroll-container">
+      <div class="scroll-item">
+        <img src="images\mbp14-m3-max-pro-spaceblack-gallery2-202310.jpg" alt="mac" class="mac" width="251.4" height="167.7">
+        <p><a href="https://www.apple.com/my/shop/buy-mac/macbook-pro/14-inch-space-black-apple-m3-max-with-14-core-cpu-and-30-core-gpu-36gb-memory-1tb" class="purchase-button">Macbook Pro M3 Max</a></p>
+      </div>
+
+      <div class="scroll-item">
+        <img src="images\razer-blade-14-2023-p9-hero-v2-desktop.jpg" alt="razer" class="razer" width="251.4" height="167.7">
+        <p><a href="https://www.razer.com/gaming-laptops/razer-blade-14" class="purchase-button">Razer Blade 14</a></p>
+      </div>
+
+      <div class="scroll-item">
+        <img src="images\rog.png" alt="rog" class="rog" width="251.4" height="167.7">
+        <p><a href="https://rog.asus.com/my/laptops/rog-zephyrus/rog-zephyrus-g16-2023-series/?gad_source=1&gclid=Cj0KCQiA35urBhDCARIsAOU7QwkCLzfg5PJ-B51sJUduT1K_TYtKpFeAegLYAs_wB5bpuJR6UJZ8XksaAl9xEALw_wcB" class="purchase-button">ROG Zephyrus G16 GU603</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+  <hr>
+
+  <div class="main">
+    <h2>Timeline</h2>
+    <h5>JRW HQ, Baker Street, 1986</h5>
+    <img src="images\wp4585515-aesthetic-retro-wallpapers.jpg" alt=banner class="banner" width="1425" height="720">
+  </div>
+</div>
+
+</body>
+
+<hr>
+
+<footer>
+  <div class="footer">
+    <h2>Tech Hunters</h2>
+    <p>&copy; JRWTech | Last Updated 24/11/2023</p><br>
+    <a href="feedback.html">Website Feedback</a><br>
+    <a href="support.html">Problem With Your Product?</a>
+    <p class="disclaimer">Disclaimer: This website is created for education and non-commercial use only. It is an assignment for completion of unit, DBI211 Fundamentals of Web Technology based on the Foundation (IT/Multimedia) course from Swinburne University of Technology Sarawak Campus.</p>
+  </div>
+</footer>
+</html>

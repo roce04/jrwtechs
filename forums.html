@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Forums</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Laptop">
+  <meta name="keywords" content="Laptop, Home">
+  <meta name="author" content="Jay/Rachel/WeeLing">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script>
+    $(function () {
+      $('a').each(function () {
+        if ($(this).prop('href') == window.location.href) {
+          $(this).addClass('active');
+          $(this).parents('li').addClass('active');
+        }
+      });
+    });
+  </script>
+</head>
+
+<body>
+
+<header>
+  <a href="index.html"><img src="images\jrw.png" alt="logo" div class="logo" width="10%" height="20%"></a>
+
+  <nav>
+    <ul class="navbar">
+      <li><a class="active" href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="feedback.html">Feedback</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="support.html">Support</a></li>
+      <li><a href="news&updates.html">News & Updates</a></li>
+      <li><a href="forums.html">Forums</a></li>
+    </ul>
+  </nav>
+</header>
+
+<article>
+
+  <div id="forum-container">
+    <h1>Discussion Forum</h1>
+
+    <div id="post-form">
+      <h2>Create a new post</h2>
+      <form id="new-post-form">
+        <label for="post-title">Title:</label>
+        <input type="text" id="post-title" name="post-title" required>
+
+        <label for="post-content">Content:</label>
+        <textarea id="post-content" name="post-content" required></textarea>
+
+        <button type="submit">Post</button>
+      </form>
+    </div>
+
+    <div id="posts">
+    </div>
+
+  </div>
+
+  <script>
+    const existingPosts = JSON.parse(localStorage.getItem('forumPosts')) || [];
+    const postsContainer = document.getElementById('posts');
+
+    existingPosts.forEach(post => {
+      const postElement = createPostElement(post.title, post.content);
+      postsContainer.appendChild(postElement);
+
+      post.replies.forEach(reply => {
+        const replyElement = createReplyElement(reply);
+        postElement.querySelector('.replies').appendChild(replyElement);
+      });
+    });
+
+    document.getElementById('new-post-form').addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      const title = document.getElementById('post-title').value;
+      const content = document.getElementById('post-content').value;
+
+      if (title && content) {
+        const postElement = createPostElement(title, content);
+        postsContainer.appendChild(postElement);
+
+        const newPost = { title, content, replies: [] };
+        existingPosts.push(newPost);
+        localStorage.setItem('forumPosts', JSON.stringify(existingPosts));
+
+        document.getElementById('post-title').value = '';
+        document.getElementById('post-content').value = '';
+      } else {
+        alert('Please fill in both title and content fields.');
+      }
+    });
+
+    function createPostElement(title, content) {
+      const postElement = document.createElement('div');
+      postElement.classList.add('post');
+
+      postElement.innerHTML = `
+        <h3>${title}</h3>
+        <p>${content}</p>
+        <button class="reply-button">Reply</button>
+        <div class="replies"></div>
+      `;
+
+      const replyButton = postElement.querySelector('.reply-button');
+      replyButton.addEventListener('click', function () {
+        const replyContainer = document.createElement('div');
+        replyContainer.classList.add('reply-container');
+
+        const replyTextbox = document.createElement('textarea');
+        replyTextbox.setAttribute('placeholder', 'Type your reply here...');
+        replyContainer.appendChild(replyTextbox);
+
+        const replySubmitButton = document.createElement('button');
+        replySubmitButton.textContent = 'Submit Reply';
+        replySubmitButton.addEventListener('click', function () {
+          const replyContent = replyTextbox.value.trim();
+          if (replyContent) {
+            const replyElement = createReplyElement(replyContent);
+            postElement.querySelector('.replies').appendChild(replyElement);
+
+            const newReply = { content: replyContent };
+            const postIndex = existingPosts.findIndex(post => post.title === title && post.content === content);
+            existingPosts[postIndex].replies.push(newReply);
+            localStorage.setItem('forumPosts', JSON.stringify(existingPosts));
+
+            replyTextbox.value = '';
+          }
+        });
+
+        replyContainer.appendChild(replySubmitButton);
+        postElement.querySelector('.replies').appendChild(replyContainer);
+      });
+
+      return postElement;
+    }
+
+    function createReplyElement(content) {
+      const replyElement = document.createElement('div');
+      replyElement.classList.add('reply');
+      replyElement.innerHTML = `<p>${content}</p>`;
+      return replyElement;
+    }
+  </script>
+
+</article>
+
+<hr>
+
+<footer>
+  <p>&copy; <a href="about.html">RJWTech</a></p>
+  <p class="disclaimer">Disclaimer: This website is created for education and non-commercial use only. It is an assignment for completion of the unit, DBI211 Fundamentals of Web Technology based on the Foundation (IT/Multimedia) course from Swinburne University of Technology Sarawak Campus.</p>
+</footer>
+</body>
+
+</html>

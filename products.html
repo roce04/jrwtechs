@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Products</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Laptop">
+  <meta name="keywords" content="Laptop, Home">
+  <meta name="author" content="Jay/Rachel/WeeLing">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script>
+    $(function(){
+      $('a').each(function(){
+        if ($(this).prop('href') == window.location.href) {
+          $(this).addClass('active'); 
+          $(this).parents('li').addClass('active');
+        }
+      });
+    });
+  </script>
+  <style>
+    #product-container {
+      max-width: 800px;
+      margin: 20px auto;
+    }
+
+    .product {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      margin: 10px 0;
+      padding: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .product:hover {
+      background-color: #f9f9f9;
+    }
+
+    .product-description {
+      display: none;
+      padding: 10px;
+      margin-top: 10px;
+      border: 1px solid #ddd;
+      background-color: #f9f9f9;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="index.html"><img src="images\jrw.png" alt="logo" div class="logo" width="10%" height="20%"></a>
+
+  <nav>
+    <ul class="navbar">
+      <li><a class="active" href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="feedback.html">Feedback</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="support.html">Support</a></li>
+      <li><a href="news&updates.html">News & Updates</a></li>
+      <li><a href="forums.html">Forums</a></li>
+    </ul>
+  </nav>
+</header>
+
+<article>
+  <div id="product-container">
+    <div class="product" onclick="toggleDescription('laptop')">
+      <h2>Framework Laptop 16</h2>
+      <img src="images/frameworklaptop16head.jpg" alt="Laptop Image" style="max-width: 100%;">
+      <p>Price: $1699.00</p>
+      <div class="product-description" id="laptop-description">
+        <p>A high-performance laptop with upgradeable, modular, latest-generation graphics. Swap and upgrade peripherals independently of the rest of the laptop, including generation over generation discrete GPUs. The AMD Radeon™ RX 7700S Graphics Module with 8GB of GDDR6 enables intense gaming and creativity applications. If you want a thinner and lighter system, you can switch to an Expansion Bay Shell and use the impressive integrated graphics capabilities of Ryzen 7040 Series.</p>
+      </div>
+    </div>
+
+    <div class="product" onclick="toggleDescription('tablet')">
+      <h2>Macbook Pro M3 Max</h2>
+      <img src="images/mbp14-m3-max-pro-spaceblack-gallery2-202310.jpg" alt="Tablet Image" style="max-width: 100%;">
+      <p>Price: $3167.00</p>
+      <div class="product-description" id="tablet-description">
+        <p>Apple M3 Max chip with 14‑core CPU, 30‑core GPU and 16‑core Neural Engine
+36GB unified memory
+1TB SSD storage
+14-inch Liquid Retina XDR display²
+96W USB-C Power Adapter
+Three Thunderbolt 4 ports, HDMI port, SDXC card slot, headphone jack, MagSafe 3 port
+Backlit Magic Keyboard with Touch ID - US English</p>
+      </div>
+    </div>
+
+    <div class="product" onclick="toggleDescription('razer')">
+      <h2>Razer Blade 14</h2>
+      <img src="images\razer-blade-14-2023-p9-hero-v2-desktop.jpg" alt="Tablet Image" style="max-width: 100%;">
+      <p>Price: $1999.99</p>
+      <div class="product-description" id="razer-description">
+        <p>The most portable Blade in our arsenal now has a greater source of power at its core. At just 17.99 mm thin, experience performance that’s made to move with the Razer Blade 14—featuring an AMD Ryzen™ 9 7940HS processor, NVIDIA® GeForce RTX™ 40 Series graphics, and a QHD+ 240Hz 16:10 display.</p>
+      </div>
+    </div>
+
+    <div class="product" onclick="toggleDescription('rog')">
+      <h2>ROG Zephyrus G16 GU603</h2>
+      <img src="images\rog.png" alt="rog Image" style="max-width: 100%;">
+      <p>Price: $1498.00 ></p>
+      <div class="product-description" id="rog-description">
+        <p>The most portable Blade in our arsenal now has a greater source of power at its core. At just 17.99 mm thin, experience performance that’s made to move with the Razer Blade 14—featuring an AMD Ryzen™ 9 7940HS processor, NVIDIA® GeForce RTX™ 40 Series graphics, and a QHD+ 240Hz 16:10 display.</p>
+      </div>
+    </div>
+	
+
+  </div>
+</article>
+
+<hr>
+
+<footer>
+	<p>&copy; <a href="aboutus.html">RJWTech</a>
+  <p class="disclaimer">Disclaimer: This website is created for education and non-commercial use only. It is an assignment for completion of the unit, DBI211 Fundamentals of Web Technology based on the Foundation (IT/Multimedia) course from Swinburne University of Technology Sarawak Campus.</p>
+</footer>
+
+<script>
+  function toggleDescription(productId) {
+    const description = document.getElementById(productId + '-description');
+    description.style.display = (description.style.display === 'block') ? 'none' : 'block';
+  }
+</script>
+
+</body>
+</html>

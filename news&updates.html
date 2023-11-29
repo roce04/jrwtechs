@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+	<title>News & Updates</title>
+	<meta charset="utf-8">
+	<meta name="author" content="RJWTech">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script>
+    $(function(){
+        $('a').each(function(){
+            if ($(this).prop('href') == window.location.href) {
+                $(this).addClass('active'); $(this).parents('li').addClass('active');
+            }
+        });
+    });
+</script>
+</head>
+
+<body>
+
+	<header>
+
+		<a href="index.html"><img src="images\jrw.png" alt="logo" div class="logo" width="10%" height="20%"></a>
+
+	    <nav>
+			<ul class="navbar">
+				<li><a class="active" href="index.html">Home</a></li>
+				<li><a href="about.html">About Us</a></li>
+				<li><a href="feedback.html">Feedback</a></li>
+				<li><a href="products.html">Products</a></li>
+				<li><a href="support.html">Support</a></li>
+				<li><a href="news&updates.html">News & Updates</a></li>
+				<li><a href="forums.html">Forums</a></li>
+			</ul>
+		</nav>
+
+		<h1>News & Updates</h1>
+
+	</header>
+
+	<article>
+		
+
+		<div>
+
+			<!--This information is taken from https://www.wired.com/story/how-to-buy-the-right-laptop-for-you/-->
+
+			<h3>How to Choose the Right Laptop: A Step-by-Step Guide</h3>
+
+			<p>Shopping for a laptop can be infuriating. Here’s how to sift through the acronyms, storage options, and extra features to find the best one for you.</p>
+			
+			<p>How to pick your operating system, know your CPUs, Graphics cards, more...</p>
+
+			<p2><a href="https://www.wired.com/story/how-to-buy-the-right-laptop-for-you/">Click here to read the full article</a></p2>
+
+		</div>
+		<hr>
+
+		<div>
+			<h3>Announcement!</h3>
+			<p>Our RJWTech Laptop website now is open to all users.</p>
+			
+			<p>This website provides laptop purchase, customer service support, as well as the latest information and any updates about laptops.</p>
+			
+			<p>Welcome to use our website. If there is anything that needs improvement on this website.</p>
+
+			<p2><a href="feedback.html">please click here to give us feedback.</a></p2>
+
+		</div>
+	</article>
+
+	<hr>
+
+	<footer> 
+		<p>&copy; <a href="about.html">RJWTech</a></p>
+		<p class="disclaimer">Disclaimer: This website is created for education and non-commercial use only. It is an assignment for completion of unit, DBI211 Fundamentals of Web Technology based on the Foundation (IT/Multimedia) course from Swinburne University of Technology Sarawak Campus.</p>
+	</footer>
+
+</body>
+</html>
